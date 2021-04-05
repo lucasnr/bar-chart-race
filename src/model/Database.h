@@ -47,8 +47,13 @@ class Database {
     this->charts.insert(make_pair(chart->getTimestamp(), chart));
 
     auto items{chart->getItems()};
-    for (auto item = items.begin(); item != items.end(); item++)
-      this->categories.insert(make_pair(item->category, (Color::RED + this->categories.size())));
+    for (auto item = items.begin(); item != items.end(); item++) {
+      auto color{Color::RED + this->categories.size()};
+      if (color > 37 && color < 91)
+        color += 53;
+
+      this->categories.insert(make_pair(item->category, color));
+    }
 
     if (this->categories.size() > 14)
       this->single_colored = true;
@@ -58,5 +63,8 @@ class Database {
       return Color::CYAN;
 
     return this->categories.at(category);
+  }
+  categories_type getCategories() {
+    return this->categories;
   }
 };
