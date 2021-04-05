@@ -167,7 +167,7 @@ int main(int argc, char **argv) {
   }
 
   int fps{24}, max_bars{15};
-  for (size_t i = 1; i < argc - 1; i++)
+  for (int i{1}; i < argc - 1; i++)
     if (i % 2 != 0)
       if (strcmp(argv[i], "-b") == 0) {
         auto arg_max_bars = atoi(argv[i + 1]);
