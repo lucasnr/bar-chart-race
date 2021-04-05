@@ -14,10 +14,10 @@ set ( CMAKE_CXX_FLAGS "-Wall" )
 include_directories( src )
 
 # Add the target
-add_executable( run
+add_executable( bcr
                 src/main.cpp )
 
 # define C++11 standard
-set_property(TARGET run PROPERTY CXX_STANDARD 11)
+set_property(TARGET bcr PROPERTY CXX_STANDARD 11)
 
 # The end
